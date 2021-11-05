@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 
 const UserForm = (props) => {
-  const [firstName, setFirstName] = useState("John");
-  const [lastName, setLastName] = useState("Smith");
-  const [email, setEmail] = useState("johnsmith@johnsmith.com");
-  const [password, setPassword] = useState("password");
-  const [confirm, setConfirm] = useState("password");
+  const [firstName, setFirstName] = useState(""); 
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
 
   const createUser = (e) => {
@@ -27,7 +27,7 @@ const UserForm = (props) => {
         <div className = "Box">
           <label>First Name</label>
           <input type="text" value={firstName} onChange= { (e) =>
-          setFirstName(e.target.value) } />
+          setFirstName(e.target.value) } />          
         </div>
         <div className = "Box">
           <label>Last Name</label>
@@ -46,7 +46,7 @@ const UserForm = (props) => {
         </div> 
         <div className = "Box">
           <label>Confirm Password</label>
-          <input type={passwordShown ? "text" : "password"} value={password} onChange= { (e) =>
+          <input type={passwordShown ? "text" : "password"} value={confirm} onChange= { (e) =>
         setConfirm(e.target.value) } />
         </div>  
       </div>
