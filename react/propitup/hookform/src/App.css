@@ -1,28 +1,3 @@
 .App {
-  margin: auto;
-  width: 650px;
-  margin-top: 2em;
+  margin-left: 750px;
 }
-
-.Box {
-  padding: 10px;
-  background-color: lightgray;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-label {
-  width: 10em;
-  display: inline-block;
-}
-
-input {
-  width: 20em;
-}
-
-.Typed {
-  margin: auto;
-  width: 650px;
-  margin-top: 2em;
-}
-

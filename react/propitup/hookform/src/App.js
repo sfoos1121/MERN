@@ -1,66 +1,16 @@
-import React, { useState } from 'react';
 import './App.css';
+import Person from './components/Person';
 
-const UserForm = (props) => {
-  const [firstName, setFirstName] = useState(""); 
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirm, setConfirm] = useState("");
-  const [passwordShown, setPasswordShown] = useState(false);
 
-  const createUser = (e) => {
-    //prevents refresh and reset
-    e.preventDefault();
-
-    const newUser = { firstName, lastName, email, password};
-    console.log("Hi There!", newUser);
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setPassword("");
-    setConfirm("");
-  }
+function App() {
   return (
-    <form onSubmit={ createUser }>
-      <div className = "App">
-        <div className = "Box">
-          <label>First Name</label>
-          <input type="text" value={firstName} onChange= { (e) =>
-          setFirstName(e.target.value) } />          
-        </div>
-        <div className = "Box">
-          <label>Last Name</label>
-          <input type="text" value={lastName} onChange= { (e) =>
-        setLastName(e.target.value) } />
-        </div>
-        <div className = "Box">
-          <label>Email</label>
-          <input type="text" value={email} onChange= { (e) =>
-        setEmail(e.target.value) } />
-        </div>
-        <div className = "Box">
-          <label>Password</label>
-          <input type={passwordShown ? "text" : "password"} value={password} onChange= { (e) =>
-        setPassword(e.target.value) } />
-        </div> 
-        <div className = "Box">
-          <label>Confirm Password</label>
-          <input type={passwordShown ? "text" : "password"} value={confirm} onChange= { (e) =>
-        setConfirm(e.target.value) } />
-        </div>  
-      </div>
-      <div className="Typed">
-        <h1>Your Form Data</h1>
-        <p>First Name       {firstName}</p>
-        <p>Last Name        {lastName}</p>
-        <p>Email            {email}</p>
-        <p>Password         {password}</p>
-        <p>Password         {confirm}</p>
-      </div>
-    </form>
-  
+    <div className="App">
+      <Person name={"Doe, Jane"} lastName={"Doe"} firstName={"Jane"} age={45} hair={"Black"} />
+      <Person name={"Smith, John"}lastName={"Smith"} firstName={"John"} age={88} hair={"Brown"} />
+      <Person name={"Fillmore, Millard"} lastName={"Fillmore"} firstName={"Millard"} age={45} hair={"Brown"} />
+      <Person name={"Smith, Marla"} lastName={"Smith"} firstName={"Marla"} age={62} hair={"Brown"} />
+    </div>
   );
 }
 
-export default UserForm;
+export default App;
