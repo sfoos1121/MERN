@@ -1,0 +1,64 @@
+#main-content {
+  width: 1200px;
+  margin: auto;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+form {
+  margin-left: 300px;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+button {
+  font-size: 1.5em;
+  padding-top: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.25em;
+}
+
+
+#select {
+  margin: auto;
+  font-size: 1.5em;
+  text-align: center;
+  width: 15em;
+  padding: 0.25em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+#blocks-content {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  gap: 2em;
+}
+
+.orange {
+    height: 200px;
+    width: 200px;
+    background-color: orange;
+  }
+.pink {
+  height: 200px;
+  width: 200px;
+  background-color: pink;
+  }
+.yellow {
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+  }
+.teal {
+  height: 200px;
+  width: 200px;
+  background-color: teal;
+}
