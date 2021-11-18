@@ -1,0 +1,12 @@
+main {
+  margin: auto;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  font-size: 1.5em;
+  padding: 10px 40px 10px 40px;
+}
