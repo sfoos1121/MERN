@@ -2,4 +2,23 @@
   text-align: center;
 }
 
+.box {
+  margin-bottom: 1em;
+}
+
+.box2 {
+  margin-right: 2.5em;
+}
+
+label {
+  padding-right: 20px;
+} 
+
+button {
+  margin-top: 2em;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
 

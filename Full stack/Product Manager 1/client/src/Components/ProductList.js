@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '@reach/router'
 import axios from 'axios';
+import Product from './Product';
+import DeleteButton from './DeleteButton';
 
 const ProductList = (props) => {
-
+    const { loaded, setLoaded } = props;
     const [product, setProduct] = useState([]);
         
     useEffect(()=>{ 
@@ -14,15 +16,19 @@ const ProductList = (props) => {
             .catch((err)=>{
                 console.log(err);
             });  
-    }, []);
+    }, [loaded]);
     return (
         <div>
             {
                 product.map((product, index)=>{
-                    return <Link to={`/${product._id}`} index={index}>{product.title}<br /></Link>              
+                    return (
+                        <div>
+                            <Link to={`/${product._id}`} index={index}>{product.title}<br /></Link>
+                            <DeleteButton redirect={false} loaded={loaded} setLoaded={setLoaded} id={product._id}/>  
+                        </div>  
+                    );             
                 })
-            
-            }          
+            }         
         </div>
     );
 }
