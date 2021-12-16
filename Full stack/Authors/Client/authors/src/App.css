@@ -1,0 +1,76 @@
+.App {
+  width: 750px;
+  margin: auto;
+}
+
+h1 {
+  margin-left: 2em;
+  font-size: 2.25em;
+}
+
+p {
+  margin-left: 3em;
+  color: blueviolet;
+  font-weight: bold;
+}
+
+table {
+  margin-left: 2em;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.tableTitle {
+  padding: 0;
+}
+
+.authors, .actions {
+  color: whitesmoke;
+}
+
+.authors {
+  text-align: center;
+}
+
+.name {
+  color: blueviolet;
+  padding: 2em 4em 2em 4em;
+}
+
+td {
+  padding: 2em 4em 2em 4em;
+}
+
+tr:nth-child(odd) {background-color: lightgray}
+tr:nth-child(even) {background-color: white}
+
+.editButton, .deleteButton {
+  color: whitesmoke;
+  display: inline-block;
+  background-image:linear-gradient(white, black);
+  padding: 8px 40px 8px 40px;
+}
+
+.header {
+  margin-left: 3em;
+}
+
+.cancel, .submit {
+  background-color: blue;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin-right: 0;
+  border-radius: 10px;
+}
+
+.form {
+  margin-left: 2em;
+}
+
+.error {
+  color: red;
+}
+
