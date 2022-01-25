@@ -5,12 +5,41 @@ module.exports = {
 
     findAllImpassioned: (req, res)=>{
         Impassioned.find({})
+        .populate("createdBy", "username_id")
         .then((allImpassioned)=> {
             res.json(allImpassioned);
         })
         .catch((err)=>{
             console.log(err);
         })
+    },
+
+    findAllImpassionedByUser:(req, res)=>{
+        Impassioned.find({ createdBy: req.params.userId})
+        .then((allUserImpassioned)=> {
+            console.log(allUserImpassioned);
+            res.json(allUserImpassioned);
+        })
+        .catch((err)=>{
+            console.log(err);
+            res.status(400).json(err);
+        })
+
+    },
+    findAllImpassionedLikedByUser:(req, res)=>{
+        Impassioned.find({ 
+            _id: req.params.id,
+            'likes.userId': req.params.userid                                            
+        })
+        .then((allUserImpassioned)=> {
+            console.log(allUserImpassioned);
+            res.json(allUserImpassioned);
+        })
+        .catch((err)=>{
+            console.log(err);
+            res.status(400).json(err);
+        })
+
     },
 
     findOneImpassioned: (req, res)=>{
@@ -23,17 +52,13 @@ module.exports = {
         })
     },
 
-    createNewImpassioned: (req, res)=>{
-
-        const newImpassionedObj = new Impassioned(req.body);
-
-        const decodedJWT = jwt.decode(req.cookie.usertoken,{
-            complete: true
-        })
-
-        newImpassionedObj.createdBy = decodedJWT.payload.id;
+    createNewImpassioned: (req, res)=>{   
         
-        newImpassionedObj.save()
+        console.log('///////////////////////////////');
+        console.log(req.body);
+        console.log('///////////////////////////////');        
+        
+        Impassioned.create(req.body)
         .then((newImpassioned)=> {
             res.json(newImpassioned);
         })

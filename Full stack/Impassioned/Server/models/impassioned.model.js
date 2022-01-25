@@ -1,13 +1,18 @@
 const mongoose = require(`mongoose`);
 
 const ImpassionedSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, 'You must enter a name.'],
+    },
+    
     date: {
-        type: Number,
+        type: Date,
         required: [true, 'You must select a date.'],
     },
 
     time: {
-        type: Number,
+        type: String,
         required: [true, 'You must enter a time.'],
     },
 
@@ -18,28 +23,32 @@ const ImpassionedSchema = new mongoose.Schema({
 
     positivity: {
         type: [String],
-        required: [false,'Write about something good that happened.' ],
+        required: [false],
     },
 
     gratitude: {
         type: [String],
-        required: [false,'Give thanks for the special moments.' ],
+        required: [false],
     },
 
     goals: {
         type: [String],
-        required: [false,'Things to improve or accomplish.' ],
+        required: [false],
     },
 
     wellness: {
         type: [String],
-        required: [false,'Activities to help ope and care for yourself' ],
+        required: [false],
     },
 
     createdBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }
+        type: String       
+    },
+    likes: [{        
+        userId: {
+            type: String
+        }        
+    }]
 
 }, {timestamps: true})
 

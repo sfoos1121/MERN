@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { Router } from '@reach/router';
+import Main from './Views/Main';
+import New from './Views/New';
+import Details from './Views/Details';
+import LogReg from './Views/LogReg';
+import Registration from './Views/Registration';
+import Edit from './Views/Edit';
+import { useState } from 'react';
 
 function App() {
+
+  const [ loggedIn, setLoggedIn ] = useState(false);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">          
+      <Router>
+        <LogReg path="/" loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Registration path="/registration" loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Main path="/home" loggedIn={loggedIn} setLoggedIn={setLoggedIn} />   
+        <New path="/new" loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Edit path="/edit/:id" loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Details path="/:id" loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      </Router>
     </div>
   );
 }

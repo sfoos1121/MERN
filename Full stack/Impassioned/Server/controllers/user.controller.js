@@ -1,6 +1,7 @@
 const User = require(`../models/user.model`);
 const bcrypt = require(`bcrypt`);
 const jwt = require(`jsonwebtoken`);
+require('dotenv').config();
 
 module.exports = {
 
@@ -25,10 +26,10 @@ module.exports = {
             })
     },
 
-    login: (req, res)=>{
+    login: (req, res)=>{                          
         User.findOne({email: req.body.email})
-            .then((userRecord)=> {
-                if(user === null) {
+            .then((userRecord)=> {                  
+                if(userRecord === null) {
                     // email not found in users collection
                     res.status(400).json({message:'Invalid Login Attempt!'});
                 }
@@ -42,21 +43,20 @@ module.exports = {
                                     'usertoken',
                                     jwt.sign(
                                         {
-                                            Id: userRecord_id,
+                                            id: userRecord._id,
                                             email: userRecord.email,
                                             username: userRecord.username
                                         },
                                         process.env.JWT_SECRET
                                     ),
-
                                     {
                                         httpOnly: true,
-                                        expires: new Date (Date.now() + 9000000),
+                                        expires: new Date (Date.now() + 9000000)
                                     },
                                 ).json({
                                     message: 'Login successful',
                                     userLoggedIn: userRecord.username,
-                                    userId: userRecord._Id,
+                                    userId: userRecord._id
                                 })
                             }
                             else {
